@@ -11,10 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-
 __version__ = "0.1.0"
 
 from .model import ResNet
-from .model_test import ResNet_c10
 from .utils import load_pretrained_weights
-from .utils_test import load_pretrained_weights
