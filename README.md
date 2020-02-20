@@ -112,7 +112,7 @@ import torch
 import torchvision.transforms as transforms
 from PIL import Image
 
-from densenet_pytorch import DenseNet 
+from resnet_pytorch import ResNet 
 
 # Open image
 input_image = Image.open("img.jpg")
@@ -131,8 +131,8 @@ input_batch = input_tensor.unsqueeze(0)  # create a mini-batch as expected by th
 labels_map = json.load(open("labels_map.txt"))
 labels_map = [labels_map[str(i)] for i in range(1000)]
 
-# Classify with DenseNet121
-model = DenseNet.from_pretrained("densenet121")
+# Classify with ResNet18
+model = ResNet.from_pretrained("resnet18")
 model.eval()
 
 # move the input and model to GPU for speed if available

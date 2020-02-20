@@ -11,9 +11,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-
 import collections
-import torch
+import warnings
+
 from torch.utils import model_zoo
 
 ########################################################################
@@ -40,7 +40,7 @@ BlockArgs.__new__.__defaults__ = (None,) * len(BlockArgs._fields)
 
 
 def resnet_params(model_name):
-    """ Map resnet model name to parameter coefficients. """
+    """ Map resnet_pytorch model name to parameter coefficients. """
     params_dict = {
         # Coefficients:  res,dropout
         "resnet20":     (32, 0.2),
@@ -54,7 +54,7 @@ def resnet_params(model_name):
 
 
 def resnet(model_name, dropout_rate=0.2, image_size=None, num_classes=10):
-    """ Creates a resnet model. """
+    """ Creates a resnet_pytorch model. """
 
     layers_dict = {
         # Coefficients:  block layers list
@@ -80,8 +80,7 @@ def get_model_params(model_name, override_params):
     """ Get the block args and global params for a given model """
     if model_name.startswith("resnet"):
         s, p = resnet_params(model_name)
-        blocks_args, global_params = resnet(
-            model_name=model_name, dropout_rate=p, image_size=s)
+        blocks_args, global_params = resnet(model_name=model_name, dropout_rate=p, image_size=s)
     else:
         raise NotImplementedError("model name is not pre-defined: %s" % model_name)
     if override_params:
@@ -99,14 +98,16 @@ url_map = {
 }
 
 
-def load_pretrained_weights(model, model_name, load_fc=True):
+def load_pretrained_weights(model, arch, load_fc=True):
     """ Loads pretrained weights, and downloads if loading for the first time. """
-    state_dict = model_zoo.load_url(url_map[model_name])
+    state_dict = model_zoo.load_url(url_map[arch])
     if load_fc:
         model.load_state_dict(state_dict)
     else:
+        warnings.warn("This model parameter is only applicable to CIFAR10, which may cause some adverse effects if "
+                      "used in other cases.")
         state_dict.pop("fc.weight")
         state_dict.pop("fc.bias")
         res = model.load_state_dict(state_dict, strict=False)
-        assert set(res.missing_keys) == set(["fc.weight", "fc.bias"]), "issue loading pretrained weights"
-    print("Loaded pretrained weights for {}".format(model_name))
+        assert set(res.missing_keys) == {"fc.weight", "fc.bias"}, "issue loading pretrained weights"
+    print("Loaded pretrained weights for {}".format(arch))
