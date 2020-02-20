@@ -130,3 +130,4 @@ examples/imagenet/data/labels_map.txt
 examples/imagenet/res.txt
 research/data
 framework/static/imagenet
+*.pth
