@@ -90,11 +90,11 @@ def get_model_params(model_name, override_params):
 
 
 url_map = {
-    "resnet20": "https://github.com/Lornatang/models/raw/master/resnet/resnet20-546fab9e.pth",
-    "resnet32": "https://github.com/Lornatang/models/raw/master/resnet/resnet32-b9948351.pth",
-    "resnet44": "https://github.com/Lornatang/models/raw/master/resnet/resnet44-f74dd615.pth",
-    "resnet56": "https://github.com/Lornatang/models/raw/master/resnet/resnet56-68aecbac.pth",
-    "resnet110": "https://github.com/Lornatang/models/raw/master/resnet/resnet110-000407b3.pth",
+    "resnet20": "https://github.com/changyu98/models/raw/master/pytorch/resnet/resnet20-081ffb5e.pth",
+    "resnet32": "https://github.com/changyu98/models/raw/master/pytorch/resnet/resnet32-b9948351.pth",
+    "resnet44": "https://github.com/changyu98/models/raw/master/pytorch/resnet/resnet44-f74dd615.pth",
+    "resnet56": "https://github.com/changyu98/models/raw/master/pytorch/resnet/resnet56-68aecbac.pth",
+    "resnet110": "https://github.com/changyu98/models/raw/master/pytorch/resnet/resnet110-000407b3.pth",
 }
 
 

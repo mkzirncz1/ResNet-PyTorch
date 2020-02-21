@@ -4,14 +4,14 @@ The official implementation of ImageNet is included, but the parameters of this 
 
 Details about the models are below: 
 
-|     *Method*      |*# Params*|*Error (paper).*|*Error (ours).*|*Pretrained?*|
-|:-----------------:|:--------:|:--------------:|:-------------:|:-----------:|
-|    `resnet20`     |  0.27M   |    8.75%       |     8.02%     |      ×      |
-|    `resnet32`     |  0.46M   |    7.51%       |     7.35%     |      ×      |
-|    `resnet44`     |  0.66M   |    7.17%       |     6.70%     |      ×      |
-|    `resnet56`     |  0.85M   |    6.97%       |     6.60%     |      ×      |
-|    `resnet110`    |   1.7M   |6.43%(6.61±0.16)|     6.26%     |      ×      |
-|    `resnet1202`   |  19.4M   |    7.93%       |       ——      |      ×      |
+|     *Method*      |*# Params*|*Error (paper).*|*Error (ours).*|
+|:-----------------:|:--------:|:--------------:|:-------------:|
+|    `resnet20`     |  0.27M   |    8.75%       |     7.99%     |
+|    `resnet32`     |  0.46M   |    7.51%       |     7.35%     |
+|    `resnet44`     |  0.66M   |    7.17%       |     6.70%     |
+|    `resnet56`     |  0.85M   |    6.97%       |     6.60%     |
+|    `resnet110`    |   1.7M   |6.43%(6.61±0.16)|     6.26%     |
+|    `resnet1202`   |  19.4M   |    7.93%       |     6.18%     |
  
 
 ### Train
@@ -26,8 +26,14 @@ python main.py data -a resnet20 --gpu 0 -e --resume model_best.pth
 
 ### download pre-trained weights
 
-- [resnet20.pth](https://raw.githubusercontent.com/Lornatang/ResNet/master/examples/cifar/pretrained_weight/resnet20.pth)
-- [resnet32.pth](https://raw.githubusercontent.com/Lornatang/ResNet/master/examples/cifar/pretrained_weight/resnet32.pth)
-- [resnet44.pth](https://raw.githubusercontent.com/Lornatang/ResNet/master/examples/cifar/pretrained_weight/resnet44.pth)
-- [resnet56.pth](https://raw.githubusercontent.com/Lornatang/ResNet/master/examples/cifar/pretrained_weight/resnet56.pth)
-- [resnet110.pth](https://raw.githubusercontent.com/Lornatang/ResNet/master/examples/cifar/pretrained_weight/resnet110.pth)
+**from github repo**
+
+- [resnet20.pth](https://github.com/changyu98/models/raw/master/pytorch/resnet/resnet20-081ffb5e.pth)
+- [resnet32.pth](https://github.com/changyu98/models/raw/master/pytorch/resnet/resnet32-b9948351.pth)
+- [resnet44.pth](https://github.com/changyu98/models/raw/master/pytorch/resnet/resnet44-f74dd615.pth)
+- [resnet56.pth](https://github.com/changyu98/models/raw/master/pytorch/resnet/resnet56-68aecbac.pth)
+- [resnet110.pth](https://github.com/changyu98/models/raw/master/pytorch/resnet/resnet110-000407b3.pth)
+
+**from Baidu cloud disk**
+
+- 
