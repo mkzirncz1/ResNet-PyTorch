@@ -26,13 +26,14 @@ python main.py data -a resnet20 --gpu 0 -e --resume model_best.pth
 
 ### download pre-trained weights
 
-**from github repo**
+**from github release**
 
-- [resnet20.pth](https://github.com/changyu98/models/raw/master/pytorch/resnet/resnet20-081ffb5e.pth)
-- [resnet32.pth](https://github.com/changyu98/models/raw/master/pytorch/resnet/resnet32-b9948351.pth)
-- [resnet44.pth](https://github.com/changyu98/models/raw/master/pytorch/resnet/resnet44-f74dd615.pth)
-- [resnet56.pth](https://github.com/changyu98/models/raw/master/pytorch/resnet/resnet56-68aecbac.pth)
-- [resnet110.pth](https://github.com/changyu98/models/raw/master/pytorch/resnet/resnet110-000407b3.pth)
+- [resnet20.pth](https://github.com/Lornatang/ResNet-PyTorch/releases/download/1.0/resnet20-081ffb5e.pth)
+- [resnet32.pth](https://github.com/Lornatang/ResNet-PyTorch/releases/download/1.0/resnet32-b9948351.pth)
+- [resnet44.pth](https://github.com/Lornatang/ResNet-PyTorch/releases/download/1.0/resnet44-f74dd615.pth)
+- [resnet56.pth](https://github.com/Lornatang/ResNet-PyTorch/releases/download/1.0/resnet56-68aecbac.pth)
+- [resnet110.pth](https://github.com/Lornatang/ResNet-PyTorch/releases/download/1.0/resnet110-000407b3.pth)
+- [resnet1202.pth](https://github.com/Lornatang/ResNet-PyTorch/releases/download/1.0/resnet1202-f3b1deed.pth)
 
 **from Baidu cloud disk**
 

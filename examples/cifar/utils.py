@@ -43,12 +43,12 @@ def resnet_params(model_name):
     """ Map resnet_pytorch model name to parameter coefficients. """
     params_dict = {
         # Coefficients:  res,dropout
-        "resnet20":     (32, 0.2),
-        "resnet32":     (32, 0.2),
-        "resnet44":     (32, 0.2),
-        "resnet56":     (32, 0.2),
-        "resnet110":    (32, 0.2),
-        "resnet1202":   (32, 0.2),
+        "resnet20": (32, 0.2),
+        "resnet32": (32, 0.2),
+        "resnet44": (32, 0.2),
+        "resnet56": (32, 0.2),
+        "resnet110": (32, 0.2),
+        "resnet1202": (32, 0.2),
     }
     return params_dict[model_name]
 
@@ -90,11 +90,12 @@ def get_model_params(model_name, override_params):
 
 
 url_map = {
-    "resnet20": "https://github.com/changyu98/models/raw/master/pytorch/resnet/resnet20-081ffb5e.pth",
-    "resnet32": "https://github.com/changyu98/models/raw/master/pytorch/resnet/resnet32-b9948351.pth",
-    "resnet44": "https://github.com/changyu98/models/raw/master/pytorch/resnet/resnet44-f74dd615.pth",
-    "resnet56": "https://github.com/changyu98/models/raw/master/pytorch/resnet/resnet56-68aecbac.pth",
-    "resnet110": "https://github.com/changyu98/models/raw/master/pytorch/resnet/resnet110-000407b3.pth",
+    "resnet20": "https://github.com/Lornatang/ResNet-PyTorch/releases/download/1.0/resnet20-081ffb5e.pth",
+    "resnet32": "https://github.com/Lornatang/ResNet-PyTorch/releases/download/1.0/resnet32-b9948351.pth",
+    "resnet44": "https://github.com/Lornatang/ResNet-PyTorch/releases/download/1.0/resnet44-f74dd615.pth",
+    "resnet56": "https://github.com/Lornatang/ResNet-PyTorch/releases/download/1.0/resnet56-68aecbac.pth",
+    "resnet110": "https://github.com/Lornatang/ResNet-PyTorch/releases/download/1.0/resnet110-000407b3.pth",
+    "resnet1202": "https://github.com/Lornatang/ResNet-PyTorch/releases/download/1.0/resnet1202-f3b1deed.pth",
 }
 
 
