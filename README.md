@@ -20,7 +20,7 @@ model = ResNet.from_pretrained('resnet18', num_classes=10)
 This update allows you to use NVIDIA's Apex tool for accelerated training. By default choice `hybrid training precision` + `dynamic loss amplified` version, if you need to learn more and details about `apex` tools, please visit https://github.com/NVIDIA/apex.
 
 ### Overview
-This repository contains an op-for-op PyTorch reimplementation of [Deep Residual Learning for Image Recognition](http://xxx.itp.ac.cn/abs/1512.03385).
+This repository contains an op-for-op PyTorch reimplementation of [Deep Residual Learning for Image Recognition](http://arxiv.org/abs/1512.03385).
 
 The goal of this implementation is to be simple, highly extensible, and easy to integrate into your own projects. This implementation is a work in progress -- new features are currently being implemented.  
 
@@ -54,14 +54,14 @@ which contains 5, 34, 50, 101, 152 layers respectively. Detailed model architect
 
 Install from pypi:
 ```bash
-pip install resnet_pytorch
+$ pip3 install resnet_pytorch
 ```
 
 Install from source:
 ```bash
-git clone https://github.com/Lornatang/ResNet-PyTorch.git
-cd ResNet-PyTorch
-pip install -e .
+$ git clone https://github.com/Lornatang/ResNet-PyTorch.git
+$ cd ResNet-PyTorch
+$ pip3 install -e .
 ``` 
 
 ### Usage
@@ -119,10 +119,10 @@ input_image = Image.open("img.jpg")
 
 # Preprocess image
 preprocess = transforms.Compose([
-  transforms.Resize(256),
-  transforms.CenterCrop(224),
-  transforms.ToTensor(),
-  transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+    transforms.Resize(256),
+    transforms.CenterCrop(224),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
 ])
 input_tensor = preprocess(input_image)
 input_batch = input_tensor.unsqueeze(0)  # create a mini-batch as expected by the model
@@ -137,18 +137,18 @@ model.eval()
 
 # move the input and model to GPU for speed if available
 if torch.cuda.is_available():
-  input_batch = input_batch.to("cuda")
-  model.to("cuda")
+    input_batch = input_batch.to("cuda")
+    model.to("cuda")
 
 with torch.no_grad():
-  logits = model(input_batch)
+    logits = model(input_batch)
 preds = torch.topk(logits, k=5).indices.squeeze(0).tolist()
 
 print("-----")
 for idx in preds:
-  label = labels_map[idx]
-  prob = torch.softmax(logits, dim=1)[0, idx].item()
-  print(f"{label:<75} ({prob * 100:.2f}%)")
+    label = labels_map[idx]
+    prob = torch.softmax(logits, dim=1)[0, idx].item()
+    print(f"{label:<75} ({prob * 100:.2f}%)")
 ```
 
 #### Example: Feature Extraction 
@@ -194,3 +194,40 @@ Enjoy it.
 #### ImageNet
 
 See `examples/imagenet` for details about evaluating on ImageNet.
+
+### Credit
+
+#### Deep Residual Learning for Image Recognition
+
+*Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun*
+
+##### Abstract
+
+Deeper neural networks are more difficult to train. We
+present a residual learning framework to ease the training
+of networks that are substantially deeper than those used
+previously. We explicitly reformulate the layers as learning residual functions with reference to the layer inputs, instead of learning unreferenced functions. We provide comprehensive empirical evidence showing that these residual
+networks are easier to optimize, and can gain accuracy from
+considerably increased depth. On the ImageNet dataset we
+evaluate residual nets with a depth of up to 152 layers—8×
+deeper than VGG nets [41] but still having lower complexity. An ensemble of these residual nets achieves 3.57% error
+on the ImageNet test set. This result won the 1st place on the
+ILSVRC 2015 classification task. We also present analysis
+on CIFAR-10 with 100 and 1000 layers.
+The depth of representations is of central importance
+for many visual recognition tasks. Solely due to our extremely deep representations, we obtain a 28% relative improvement on the COCO object detection dataset. Deep
+residual nets are foundations of our submissions to ILSVRC
+& COCO 2015 competitions1
+, where we also won the 1st
+places on the tasks of ImageNet detection, ImageNet localization, COCO detection, and COCO segmentation.
+
+[paper](http://arxiv.org/abs/1512.03385) [code](https://github.com/KaimingHe/deep-residual-networks)
+
+```text
+@article{He2015,
+	author = {Kaiming He and Xiangyu Zhang and Shaoqing Ren and Jian Sun},
+	title = {Deep Residual Learning for Image Recognition},
+	journal = {arXiv preprint arXiv:1512.03385},
+	year = {2015}
+}
+```
