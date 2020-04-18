@@ -138,7 +138,7 @@ def resnet_params(model_name):
     params_dict = {
         # Coefficients:   block, res
         "resnet18": (BasicBlock, 224),
-        "resnet30": (BasicBlock, 224),
+        "resnet34": (BasicBlock, 224),
         "resnet54": (Bottleneck, 224),
         "resnet101": (Bottleneck, 224),
         "resnet152": (Bottleneck, 224),
