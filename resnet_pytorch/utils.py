@@ -164,7 +164,7 @@ def resnet(arch, block, num_classes=1000, zero_init_residual=False,
 
     layers_dict = {
         "resnet18": (2, 2, 2, 2),
-        "resnet30": (3, 4, 6, 3),
+        "resnet34": (3, 4, 6, 3),
         "resnet54": (3, 4, 6, 3),
         "resnet101": (3, 4, 23, 3),
         "resnet152": (3, 8, 36, 3),
