@@ -53,6 +53,7 @@ with torch.no_grad():
     logits = model(input_batch)
 preds = torch.topk(logits, k=5).indices.squeeze(0).tolist()
 
+#print
 print("-----")
 for idx in preds:
     label = labels_map[idx]
